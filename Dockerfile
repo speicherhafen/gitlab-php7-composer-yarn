@@ -9,6 +9,9 @@ RUN set -x \
  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
  && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
  && apt-get update -y \
+  && apt-get update -y \
+   && apt-get update -y \
+    && apt-get update -y \
  && apt-get install -y git zip libmcrypt-dev libcurl4-gnutls-dev libicu-dev \
                        libfreetype6-dev libjpeg-dev libpng-dev libxml2-dev \
                        libbz2-dev libc-client-dev libkrb5-dev  mysql-client \ 
@@ -23,6 +26,9 @@ RUN set -x \
  && chmod +x /usr/local/bin/composer \
  && wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip -O /tmp/chromedriver.zip \
  && echo unzip \
+  && echo unzip \
+   && echo unzip \
+    && echo unzip \
  && unzip /tmp/chromedriver.zip -d /usr/local/bin \
  && apt-get autoclean -y \
  && apt-get --purge autoremove -y \
