@@ -1,5 +1,7 @@
 FROM php:7.1.8
 
+ENV PHANTOM_JS "phantomjs-2.1.1-linux-x86_64"
+
 RUN set -x \
  && apt-get update -y \
  && apt-get install -y wget apt-transport-https \
@@ -22,8 +24,9 @@ RUN set -x \
  && wget -O /usr/local/bin/composer https://getcomposer.org/download/1.7.2/composer.phar \
  && chmod +x /usr/local/bin/composer \
  && wget https://chromedriver.storage.googleapis.com/2.42/chromedriver_linux64.zip -O /tmp/chromedriver.zip \
- && echo unzip \
  && unzip /tmp/chromedriver.zip -d /usr/local/bin \
+ && wget https://github.com/Medium/phantomjs/releases/download/v2.1.1/$PHANTOM_JS.tar.bz2 -O /tmp/$PHANTOM_JS.tar.bz2 \
+ && tar xvjf /tmp/$PHANTOM_JS.tar.bz2 -C /usr/local/bin --strip-components 2 $PHANTOM_JS/bin/phantomjs \
  && apt-get autoclean -y \
  && apt-get --purge autoremove -y \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \ 
