@@ -16,9 +16,10 @@ RUN set -x \
  && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/  \
  && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
  && docker-php-ext-install mbstring mcrypt curl json intl gd xml zip bz2 opcache pdo_mysql pcntl imap exif bcmath \
- && pecl install xdebug \
+ && pecl install pcov \
  && echo "date.timezone = Europe/Berlin" > /usr/local/etc/php/conf.d/timezone.ini \
  && echo "memory_limit = -1" > /usr/local/etc/php/conf.d/memory.ini  \
+ && echo "pcov.enabled = 1" > /usr/local/etc/php/conf.d/pcov.ini \
  && wget -O /usr/local/bin/composer https://getcomposer.org/download/1.7.2/composer.phar \
  && chmod +x /usr/local/bin/composer \
  && wget https://chromedriver.storage.googleapis.com/2.42/chromedriver_linux64.zip -O /tmp/chromedriver.zip \
