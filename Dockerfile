@@ -14,7 +14,7 @@ RUN set -x \
  && apt-get install -y git zip libmcrypt-dev libcurl4-gnutls-dev libicu-dev \
                        libfreetype6-dev libjpeg-dev libpng-dev libxml2-dev \
                        libbz2-dev libc-client-dev libkrb5-dev  mysql-client \ 
-                       nodejs yarn google-chrome-stable \
+                       nodejs yarn google-chrome-stable pdftk \
  && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/  \
  && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
  && docker-php-ext-install mbstring mcrypt curl json intl gd xml zip bz2 opcache pdo_mysql pcntl imap exif bcmath \
